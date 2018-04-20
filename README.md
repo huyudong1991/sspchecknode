@@ -43,4 +43,17 @@
 - 如果返回可以接收，则前端api就成功做好了，下面ssh进入你要监测的后端服务器
 
 **3. 后端自动监控重启**
-- 下载check.sh到你的后端服务器
+- 通过git或者其他方式下载check.sh到你的后端服务器
+
+- 赋予执行权限`chmod 777 check.sh`
+
+- 执行`vi check.sh`，修改你的节点id，网站域名，以及倒数第五行你的后端脚本run.sh的存放目录，然后保存
+
+- 测试执行`bash check.sh`，查看有无报错
+
+- 如没有问题，加入crond定时任务，建议5-10分钟执行一次，执行`crontab -e`，添加一行<br>`*/10 * * * * /root/check.sh`<br>注意/root/check.sh是我的脚本目录，你要改成你自己的
+
+-搞定收工
+
+# 注意事项
+第3步中check.sh脚本默认你使用的是./run.sh的方法运行的后端，如果你用的是supervisord或者pm2或者systemd管理的后端，请把check.sh中bash run.sh改成你自己重启后端的命令就可以了，例如service supervisord restart或者pm2 restart all或者systemctl restart ssr.service
