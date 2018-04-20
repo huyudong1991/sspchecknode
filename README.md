@@ -56,4 +56,4 @@
 -搞定收工
 
 # 注意事项
-第3步中check.sh脚本默认你使用的是./run.sh的方法运行的后端，如果你用的是supervisord或者pm2或者systemd管理的后端，请把check.sh中bash run.sh改成你自己重启后端的命令就可以了，例如service supervisord restart或者pm2 restart all或者systemctl restart ssr.service
+第3步中check.sh脚本默认你使用的是./run.sh的方法运行的后端，如果你用的是supervisord或者pm2或者systemd管理的后端，请把check.sh中``bash run.sh``改成你自己重启后端的命令就可以了，例如``service supervisord restart``或者``pm2 restart all``或者``systemctl restart ssr.service``
