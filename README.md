@@ -7,5 +7,6 @@
 
 # 使用方法
 1. 首先在前端网站建立api
-- 修改你的网站目录下/app/HomeController.php文件,添加引用 `use App\Models\Node;`
+- 修改你的网站目录下/app/HomeController.php文件
+  添加引用 `use App\Models\Node;`
 
