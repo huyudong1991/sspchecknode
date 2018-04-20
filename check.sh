@@ -44,9 +44,9 @@ then
 elif [ $s == 2 ]
 then	
 	echo "节点失联，已重启节点"
-	systemctl restart ssr.service
-	#cd /root/shadowsocks
-	#bash run.sh
+	
+	cd /root/shadowsocks
+	bash run.sh
 else
 	echo "遇到未知错误"
 fi
