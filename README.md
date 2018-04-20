@@ -56,4 +56,6 @@
 - 搞定收工
 
 # 注意事项
-第3步中check.sh脚本默认你使用的是./run.sh的方法运行的后端，如果你用的是supervisord或者pm2或者systemd管理的后端，请把check.sh中``bash run.sh``改成你自己重启后端的命令就可以了，例如``service supervisord restart``或者``pm2 restart all``或者``systemctl restart ssr.service``
+- 第3步中check.sh脚本默认你使用的是./run.sh的方法运行的后端，如果你用的是supervisord或者pm2或者systemd管理的后端，请把check.sh中``bash run.sh``改成你自己重启后端的命令就可以了，例如``service supervisord restart``或者``pm2 restart all``或者``systemctl restart ssr.service``
+- 脚本默认每次执行，每隔10秒钟调用一次api，共调用5次，5次调用结果只要有一次是1就判定为节点正常
+- 不用担心调用api失败节点无限重启，如果调用api超时（超过10s）程序会自动结束当次调用，节点不会有任何动作
