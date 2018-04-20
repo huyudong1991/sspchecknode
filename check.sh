@@ -1,7 +1,7 @@
 #!/bin/bash
 
 id=197 #节点id
-host="http://ss.doubledou.buzz" #主站域名
+host="http://xxx.xxx.com" #主站域名
 x=5 #循环次数
 
 url="$host/check?id=$id"
@@ -44,7 +44,9 @@ then
 elif [ $s == 2 ]
 then	
 	echo "节点失联，已重启节点"
-	
+	# systemctl restart ssr.service
+	# service supervisord restart
+	# pm2 restart all
 	cd /root/shadowsocks
 	bash run.sh
 else
